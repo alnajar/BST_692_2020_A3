@@ -1,25 +1,37 @@
-# BST_692_2020_A5 
-BST 692 Summer 2020 - Assignment 5
+# BST_692_2020_A3 
+BST 692 Summer 2020 - Assignment 3
 
 # Goal
-You will make a package called `someWHAT` to document your new function called `some`.
-The `some` function will have a manual page and a vignette to show how it works as well as unit tests.
+We have extracted the cities of residence from the women in the breast cancer study. What you need to do is find 
+information on median *household* income and the number of people with *no insurance*.
 
-# The `some()` function
-+ Write a function called `some()` which takes a vector and returns the total (what could be called the sum of the values). 
-+ `some()` should check to make sure that the user passes data that can be used for a sum.  
-+ If a user does not pass `some()` valid data it should return easy to understand error messages.
+*TABLE 1*: S1901 - Income  
+*TABLE 2*: S2701 - Insurance Coverage  
 
-# Include unit tests 
-+ Write a unit test that checks to make sure that `some` gives the correct answer
-+ Write a unit test that checks that all the errors work properly.
+Pull the specified data from these two tables and use some SQL magic to join them together.
 
-# Documentation of `some`
-+ There should be a manual page that explains how to use `some`.
-+ There should be a vignette that has a longer explanation of what `some does` and its errror messages.
+# Output
+In your `R` folder, a file that does the API calls and joining and an R dataset (.rds) with your final dataset in your `data` folder
 
-We will evaluate the package base on:
+# To Get Started
+```{r cities, include=TRUE}
+#hint 1: read the tidycensus documentation, these geographies are called Census Designated Places
+#hint 2: to compare with the UI you see on data.census.gov, follow this structure: TABLE#_COL#_ROW# - ex: S1901_C01_012
 
-+ the clarity of the manual, vignette and the error messages 
-+ if it passes all the tests for a CRAN submitssionand
-+ if it gives the correct answers to our tests
+places <- c("Miami city", "Miami Beach city", "Davie town", "Hialeah Gardens city", 
+            "Coral Springs city", "Doral city", "Pinecrest village", "Fort Lauderdale city", 
+            "Coral Gables city", "Aventura city", "Miramar city", "Wilton Manors city",
+            "Boca Raton city", "Palm Beach town", "Juno Beach town", 
+            "Belle Glade city", "Palm Beach Gardens city", "Royal Palm Beach village",
+            "Key West city", "Opa-locka city", "Cutler Bay town", "Homestead city",
+            "Sweetwater city", "Pembroke Pines city", "Sunrise city")
+
+```
+
+## Another Hint:
+
+```{r filter}
+#from inspecting the census webste, we need attach Florida to the places to filter by
+places_full <- paste0(places, ", Florida")
+
+```
