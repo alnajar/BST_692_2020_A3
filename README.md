@@ -13,6 +13,8 @@ Pull the specified data from these two tables and use some SQL magic to join the
 # Output
 In your `R` folder, a file that does the API calls and joining and an R dataset (.rds) with your final dataset in your `data` folder
 
+![](hw_3.png)
+
 # To Get Started
 ```{r cities, include=TRUE}
 #hint 1: read the tidycensus documentation, these geographies are called Census Designated Places
