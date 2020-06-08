@@ -27,6 +27,11 @@ Insurance  <- get_acs(geography = "place",
 
 library(sqldf)
 
+
 Left <- sqldf("select a.places_full as place,
               b.estimate as Median_Income, 
               c.estimate as No_insurance
+			          from data as a left join Income as b 
+			              on a.places_full = b.NAME
+                                left join Insurance as c
+                    on a.places_full = c.NAME")
